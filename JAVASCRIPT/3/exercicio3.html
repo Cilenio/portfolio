@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos em paginas web com jquery</title>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <style>
+        .text-input{
+            width: 200px;
+        }
+        tr{
+            padding: 10px;
+        }
+        div.main{
+            width: 500px;background-color: floralwhite;
+            margin-top: 50px;margin-left: 50px;padding: 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            function validation(nota,campo){
+                try{
+                    if(nota == ""){
+                    throw "O campo"+campo+"Nao poder ser vazia, prenche com numeros";
+                    }
+                    if(isNaN(nota)){
+                        throw "O campo "+campo+"nao pode ser palavras, prencha o campo com numeros";
+                    }
+                    return true;
+                }catch(erro){
+                    alert(erro)
+                        $(this).finish();
+                        return false;
+                    }
+                }
+           
+                $("#txtvalor1").focusout(function(){
+                    if(!(validation($("#txtvalor1").val(), "VALOR-I"))){}
+                });
+                $("#TXTVALOR2").focusout(function(){
+                    if(!(validation($("#txtvalor2").val(), "VALOR-II"))){}
+                });        
+        });
+        function soma(){
+            var val1 = Number(document.querySelector('[name="txtvalor1"]').value);
+            var val2 = Number(document.querySelector('[name="txtvalor2"]').value);
+            var result = (val1 + val2);
+            var detalhes = (val1 +"+"+ val2 + " = " +result);
+            document.querySelector('[name="txtresult"]').value = detalhes;
+        }
+    </script>
+</head> 
+<body>
+    <div class="main">
+        <h1>Exercicio 2 da somativa1 de Cilenio Jose Magule</h1>
+        <h2>Eventos Com Jquery</h2>
+        <br>
+        <form>
+            <table>
+                <tr>
+                    <td>Valor-I</td>
+                    <td><input type="text" name="txtvalor1" class="text-input" id="txtvalue1"></td>
+                </tr>
+                <tr>
+                    <td>VALOR-II</td>
+                    <td><input type="text" name="txtvalor2" id="txtvalor2" class="text-input"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input type="button"
+                         value="EXECUTAR CALCULOES" onclick="soma()"></td>
+                </tr>
+                <tr>
+                    <td>RESULTADO</td>
+                    <td><input type="text" name="txtresult" id="text-input" disabled> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

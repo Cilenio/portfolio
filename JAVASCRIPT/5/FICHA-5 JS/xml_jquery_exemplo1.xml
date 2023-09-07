@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<receita nome="pao" tempo_de_preparo="5 minutos" tempo_de_cozimento="1 hora">
+  <?xml version="1.0" encoding="UTF-8"?>
+<turma>
+    <estudante>
+        <codigo>2022001</codigo>
+        <nome>Amelia Fernando Matola</nome>
+        <curso>Administracao Publica</curso>
+        <media>14.0</media>
+    </estudante>
+    <estudante>
+        <codigo>2022008</codigo>
+        <nome>Carmelita Gonsalves Macamo</nome>
+        <curso>Contablidade e Fiscalidade</curso>
+        <media>13.0</media>
+    </estudante>
+    <estudante>
+        <codigo>2022015</codigo>
+        <nome>Franscisco Hilario Manhate</nome>
+        <curso>Mecanica de Manutencao Industrial</curso>
+        <media>14.0</media>
+    </estudante>
+    <estudante>
+        <codigo>2022020</codigo>
+        <nome>Jeremias Guidione Langa</nome>
+        <curso>Electrotecnica</curso>
+        <media>16.0</media>
+    </estudante>
+</turma>
+</receita>

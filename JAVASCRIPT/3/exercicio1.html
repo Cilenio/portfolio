@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos em jquery</title>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("div").click(function(){
+                $(this).css({"background-color":"red", "color":"white"});
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>INSTITUDO DE TRANSPORTES E COMUNICACOES</h1>
+        <h2>GABINETO DO APOIO AO ALUNO</h2>
+        <p>
+            O gabinete procura densevolver o bem-estar psicosoccial
+            as capacidades e copentencias de toda a comunidade academica
+            atravez de uma abordagem multidisciplinar das suas accoes
+        </p>
+    </div>
+    <h2>Matriculas</h2>
+    <p id="esteCampo">
+        Condicoes de Ingresso <br>
+        10 classe ou equivalente ingresso directo cv3 3 anos <br>
+        12 classe ou equivalente possibilidade de ingresso no curso de 
+        Tecnico de suporte informatico - duracao 2 anos
+    </p>
+</body>
+</html>

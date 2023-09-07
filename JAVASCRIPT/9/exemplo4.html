@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somativa 2 Aniacoes</title>
+    <script type="tect/javascript" src="Chart.js"></script>
+    <style>
+        nav{
+            display: flex;
+            height: 78px;
+        }
+        nav a{
+            text-decoration: none;
+            color: red;
+            font-size: 0.5cm;
+            margin-right: 2%;
+        }
+        img{
+            float: left;
+            margin-right: 10%;
+        }
+        div.containerNav{
+            margin-left: 100px;
+        }
+        nav.navBar{
+            background-color: whitesmoke;
+            box-shadow: 2px 2px 24px black;
+        }
+        nav div ul{
+            max-width: 1280px;
+            list-style: none;
+            padding: 0;
+        }
+        nav div ul li{
+            display: inline;
+        }
+        nav div ul li a{
+            color: black;
+            padding: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        nav div ul li a:hover{
+            background-color: rosybrown;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+
+        div.main{
+            width: auto; background-color: floralwhite;
+            margin-top: 30px;margin-left: 50px;padding: 20px;
+        }
+        .text-input{
+            width: 350px;
+            padding: 2px;
+        }
+        .input-notas{
+            width: 50px;
+            padding: 2px;
+        }
+        td#alinhaDireita{
+            text-align: right;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav class="navBar">
+        <div class="containerNav">
+            <ul>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="_imagens/home.jpg" alt="" width="90px">
+                        </span>
+                        <span class="text">HOME</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="_imagens/servicos.png" alt="" width="90px">
+                        </span>
+                        <span class="text">Servicos</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="_imagens/publicacoes.jpg" alt="" width="90px">
+                        </span>
+                        <span class="text">Publicacoes</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="_imagens/faleconnosco2.png" alt="" width="90px">
+                        </span>
+                        <span class="text">Fale conosco</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <img src="" alt="" width="90px">
+                        </span>
+                        <span class="text"> </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+<div class="main">
+    <h1> ESCOLA SECUNDÁRIA JOAQUIM CHISSSANO DE BOANE</h1>
+    <h2>DIRECÇÃO PEDAGÓGICA </h2>
+    <h3>REGISTO DE APROVEITAMENTO PEDAGÓGICO SEMESTRAL</h3>
+    <h2>ELABORADO POR CILENIO JOSE MAGULE-21105-TPW3</h2>
+    <form id="myForm">
+        <table>
+            <tr>
+                <td id="alinhaDireita">Codigo</td>
+                <td><input type="text" class="text-input" id="textCodigo"></td>
+            </tr>
+            <tr>
+                <td id="alinhaDireita">Nome Completo</td>
+                <td><input type="text" class="text-input" id="texNome"></td>
+            </tr>
+            <tr>
+                <td id="alinhaDireita">Sexo:</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="sexo" value=" masculino">
+                    <label for="Masculino">  Masculino</label>&nbsp;&nbsp;
+                    <input type="radio" name="sexo" value="feminino">Feminino
+                </td>
+            </tr>
+            <tr>
+                <td id="alinhaDireita">Disciplinas</td>
+                <td><select name="disciplinas" id="disciplinas" title="disciplinas">
+                        <option value="Quimica">Quimica</option>
+                        <option value="Portugues">Portugues</option>
+                        <option value="Matematica">Matematica</option>
+                        <option value="Fisica">Fisica</option>
+                        <option value="Geografia">Geografia</option>
+                        <option value="Historia">Historia</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td id="alinhaDireita">Avaliacoes</td>
+                <td>
+                    Nota de ACS1 <input type="text" id="txtAcs1" class="input-notas"/>&nbsp;
+                    Nota de ACS2 <input type="text" id="acs2" class="input-notas"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Nota de ACS3 <input type="text" id="acs3" class="input-notas" />
+                </td>
+            </tr>
+            <tr>
+                <td id="alinhaDireita">Avaliacoes</td>
+                <td>
+                    Nota de ACP1 <input type="text" id="textAcp1" class="input-notas"/>&nbsp;
+                    Nota de ACP2 <input type="text" id="textAcp2" class="input-notas"/>&nbsp;
+                    Pratica <input type="text" id="textTrab" class="input-notas"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding: 20px; text-align: center;">
+                    <button type="button" onclick="printPauta()" style="padding: 10px;">
+                        EMITIR PAUTA
+                    </button>
+                    &nbsp;&nbsp;
+                    <button type="button" onclick="addStudent()" style="padding: 10px;">
+                        Guardar No Array
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <table border="1px">
+            <head>
+                <tr>
+                    <th>CODEST</th>
+                    <th>NOME COMPLETO</th>
+                    <th>SEXO</th>
+                    <th>DISCIPLINA</th>
+                    <th>MEDIA ACS</th>
+                    <th>MEDIA ACP</th>
+                    <th>NOTA TRABALHO</th>
+                    <th>MEDIA SEMESTRE</th>
+                    <th>RESULTADO</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </form>
+
+<script>
+    let list = document.querySelectorAll('.list');
+    console.log(list);
+    function setActiveClass(){
+        console.log("jjj")
+        list.forEach((item) => {item.classList.remove('active');
+       item.querySelector('.icon').style.display = 'none';
+    });
+    this.querySelector('.icon').style.display = 'block';
+    }
+    list.forEach((item) => item.addEventListener('mouseover', setActiveClass));
+</script>
+</body>
+</html>

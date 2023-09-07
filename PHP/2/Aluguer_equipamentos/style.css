@@ -1,0 +1,195 @@
+
+body{
+    margin: 0;
+    height: 100px;
+ 
+  
+}
+.search-box{
+    position: absolute;
+    top: 3%;
+    left: 40%;
+    transform: translate(-3%, -40%);
+    background-color: #351f8a;
+    height: 32px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-txt{
+ border: none;
+ background: none;
+ outline: none;   
+ padding: 0;
+ color: beige;
+ font-size: 16px;
+ line-height: 40px;
+ width: 0;
+ transition: .5s;
+}
+
+.search-button{
+    width: 40px;
+    height: 20px;
+    border-radius: 50%;
+    background: #351f8a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.search-box:hover> .search-txt{
+    width: 240px;
+}
+
+/*tabela listar*/
+.content-table{
+    border-collapse: collapse;
+    margin: 40px 0;
+    font-size: 0.400cm;
+    min-height: 80px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow:0 0 20px #351f8a;
+}
+.content-table thead tr{
+    background-color:#351f8a;
+    color: #ffffffff;
+    text-align: left;
+    font-weight: bold;
+}
+.content-table th,
+.content-table td
+{
+padding: 12px 15px;    
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddddd;
+}
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+/*variaveis de cores de botões*/
+:root{
+    --cor-primaria-sucess: #1a9a52ee;
+    --cor-secundaria-sucess: #ffffffee;
+    --cor-hover-sucess: #f7f7f7ee;
+}
+
+:root{
+    --cor-primaria-danger: #cd1c1cee;
+    --cor-secundaria-danger: #1a0101ee;
+    --cor-hover-danger: #f7efefee;
+}
+
+
+:root{
+    --cor-primaria-info: #0d609cee;
+    --cor-secundaria-info: #001034ee;
+    --cor-hover-info: #f7f7f7ee;
+}
+/*Botao para alugar*/
+.btn{
+    border: none;
+    padding: 10px ;
+    cursor: pointer;
+    transition: background .5s;
+    border-radius:8px ;
+}
+
+.btn-sucess{
+    background-color: var(--cor-primaria-sucess);
+    text-decoration: none;
+    color:  var(--cor-secundaria-sucess);
+
+}
+
+.btn-sucess :hover{
+    background-color: rgba var(--cor-hover-sucess), .1;
+   
+}
+.btn-sucess :active{
+    color: #f3f3f3;
+    background-color: var(--cor-secundaria-sucess);
+}
+
+
+/*Botao para apagar*/
+
+.btn-danger{
+    background-color: var(--cor-primaria-danger);
+    text-decoration: none;
+    color: #f3f3f3;
+
+}
+
+.btn-danger :hover{
+    background-color: rgba var(--cor-hover-danger), .1;
+   
+}
+.btn-sucess :active{
+    color: #f3f3f3;
+    background-color: var(--cor-secundaria-danger);
+}
+
+
+/*Botao para Editar*/
+
+.btn-info{
+    background-color: var(--cor-primaria-info);
+    text-decoration: none;
+    color: #f3f3f3;
+
+}
+
+.btn-info :hover{
+    background-color: rgba var(--cor-hover-info), .1;
+   
+}
+.btn-info :active{
+    color: #f3f3f3;
+    background-color: var(--cor-secundaria-info);
+}
+
+/*Menu*/
+
+
+header{
+    background-color: #1d5991;
+
+}
+
+  /* Menu  */
+  .topnav {
+    overflow: hidden;
+    background-color: #351f8a;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: rgb(33, 35, 149);
+  }
+  
+  /* Style the content */
+  .content {
+    background-color: #ddd;
+    padding: 10px;
+    height: 200px;
+  }

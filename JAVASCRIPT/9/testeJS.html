@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somartiva3 de Cilenio-Jose-Magule-2105-TPW3</title>
+    <script type="text/javascript" src="Chart.js"></script>
+    <script type="text/javascript" src="somativa3_normal_excepcoes.js"></script>
+    <style>
+        nav{
+            display: flex;
+            height: 78px;
+        }
+        nav a{
+            text-decoration: none;
+            color: red;
+            font-size: 0.5cm;
+            margin-right: 2%;
+        }
+        img{
+            float: left;
+            margin-right: 10%;
+        }
+        div.containerNav{
+            margin-left: 100px;
+        }
+        nav.navBar{
+            background-color: whitesmoke;
+            box-shadow: 2px 2px 24px black;
+        }
+        nav div ul{
+            max-width: 1280px;
+            list-style: none;
+            padding: 0;
+        }
+        nav div ul li{
+            display: inline;
+        }
+        nav div ul li a{
+            color: black;
+            padding: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        nav div ul li a:hover{
+            background-color: rosybrown;
+        }
+        .show{
+            display: block;
+        }
+        .icon{
+            display: none;
+        }
+
+        div.main{
+            width: auto; background-color: floralwhite;
+            margin-top: 30px;margin-left: 50px;padding: 20px;
+        }
+        .text-input{
+            width: 350px;
+            padding: 2px;
+        }
+        .input-notas{
+            width: 50px;
+            padding: 2px;
+        }
+        td#alinhaDireita{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navBar">
+        <div class="containerNav">
+            <ul>
+                <li class="list">
+                    <a href="#">
+                        <span class="text">HOME</span>
+                        <span class="icon">
+                            <img src="_imagens/home.jpg" alt="" width="90px">
+                        </span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="text">Sobre nos</span>
+                        <span class="icon">
+                            <img src="_imagens/servicos.png" alt="" width="90px">
+                        </span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="text">Administracao</span>
+                        <span class="icon">
+                            <img src="_imagens/publicacoes.jpg" alt="" width="90px">
+                        </span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="text">APROVEITAMENTO </span>
+                        <span class="icon">
+                            <img src="_imagens/faleconnosco2.png" alt="" width="90px">
+                        </span>
+                        <span class="text"></span>
+                    </a>
+                </li>
+                <li class="listt">
+                    <a href="#">
+                        <span class="iconn">
+                            <img alt="" width="90px">
+                        </span>
+                        <span class="text"></span>
+                        <span class="text"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <form id="myForm">
+            <table>
+                <tr>
+                    <td id="alinhaDireita">Codigo</td>
+                    <td><input type="text" class="text-input" id="txtCodigo"></td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">Disciplinas</td>
+                    <td><select name="disciplinas" id="disciplinas" title="disciplinas">
+                            <option value="Quimica">Quimica</option>
+                            <option value="Portugues">Portugues</option>
+                            <option value="Matematica">Matematica</option>
+                            <option value="Fisica">Fisica</option>
+                            <option value="Geografia">Geografia</option>
+                            <option value="Historia">Historia</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">MEDIAS</td>
+                    <td>
+                        TRIMESTRE 1<input type="text" id="txtT1" class="input-notas"/>
+                        TRIMESTRE  2<input type="text" id="txtT2" class="input-notas"/>
+                        TRIMESTRE 3 <input type="text" id="txtT3" class="input-notas" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding: 20px; text-align: center;">
+                        <button type="button" onclick="emitePauta()" style="padding: 10px;">
+                            EMITIR PAUTA
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <table border="1px">
+                <thead>
+                    <tr>
+                        <th>CODEST</th>
+                        <th>DISCIPLINA</th>
+                        <th>MEDIA TRIMESTRE 1</th>
+                        <th>MEDIA TRIMESTRE 2</th>
+                        <th>NOTA TRIMESTRE 3</th>
+                        <th>MEDIA ANUAL</th>
+                        <th>RESULTADO</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </form>
+        <br><hr/>
+        <h2>Grafico de barra usando pacote charts.js</h2>
+        <p>A folha de relacao nominal eletronica e uma
+            plataforma informatica do ministerio do trabalho 
+            e seguranca social, que tem como proposito a recolha
+            de dados concernentes as empresas e os seus trabalhadores
+            a operar no setor privado no teritorio de repuublica de Mocambique
+            , em tempo real produz estatistica do mercado do trabalho a
+            nivel nacional
+        </p>
+        <canvas id="myChart" style="width: 100%; max-width: 600px;"></canvas>
+        <script type="text/javascript" src="somativa3_normal_grafico.js"></script>
+    <script>
+        let list = document.querySelectorAll('.list');
+        function setActiveClass(){
+            list.forEach((item) => {item.classList.remove('active');
+            item.querySelector('.icon').style.display = 'none';
+        });
+        this.querySelector('.icon').style.display = 'block';
+        }
+        list.forEach((item) => item.addEventListener('mouseover', setActiveClass));
+    </script>
+</body>
+</html>

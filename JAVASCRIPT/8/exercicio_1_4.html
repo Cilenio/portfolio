@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function escreverConsolo(){
+            console.log(document.getElementById("c11").innerText);
+            console.log(document.getElementById("c12").innerText);
+            console.log(document.getElementById("c13").innerText);
+            console.log(document.getElementById("c15").innerText);
+            console.log(document.getElementById("c21").innerText+";"+
+                        document.getElementById("c22").innerText+";"+
+                        document.getElementById("c23").innerText+";"+
+                        document.getElementById("c24").innerText+";"+
+                        document.getElementById("c25").innerText+";");
+        }
+        function alteraTabela(){
+            document.getElementById("c21").innerText ="Amarido Jorge Muianga";
+            document.getElementById("c22").innerText ="16.00";
+            document.getElementById("c23").innerText ="07.75";
+            document.getElementById("c24").innerText ="13.50";
+            document.getElementById("c25").innerText ="14.50";
+        }
+    </script>
+</head>
+<body>
+    <h1>Praticando HTML com JAVASCRIPT</h1>
+    <p name="meuP">
+        <table border="1" class="notas">
+            <caption>Pauta da turma TIC01_2023 disciplina Analise de Sistemas </caption>
+            <tr name ="TituloColunas">
+                <th id="coluna1"> Nome completo</th>
+                <th id="coluna2">Media Frequencia</th>
+                <th id="coluna3"> Exame Normal</th>
+                <th id="coluna4">Exame Recorrencia</th>
+                <th id="coluna5">Media Final</th>
+            </tr>
+            <tr name="linha1">
+                <th id="c11"> Gervancio de Jessus Langa</th>
+                <td id="c12">12.25</td>
+                <td id="c13">14.25</td>
+                <td id="c14"></td>
+                <td id="c15">13.50</td>
+            </tr>
+            <tr name="linha2">
+                <th id="c21">Ana Paula Gonsalves Mathe</th>
+                <td id="c22">11.00</td>
+                <td id="c23">09.00</td>
+                <td id="c24">12.00</td>
+                <td id="c25">11.50</td>
+            </tr>
+            <tr name="linha23">
+                <th id="c31">Valdenr Gonsalves Mathe</th>
+                <td id="c32">18.00</td>
+                <td id="c33">16.00</td>
+                <td id="c34"></td>
+                <td id="c35">17.00</td>
+            </tr>
+        </table>
+        
+        <button type="button" onclick="escreverConsolo()">
+            visualizar dados no console JAVASCRIPT
+        </button>
+
+        <br>
+
+        <button type="button" onclick="alteraTabela()">
+            Actualizar os dados da tabela no seu navegador
+        </button>
+    </p>
+</body>
+</html>

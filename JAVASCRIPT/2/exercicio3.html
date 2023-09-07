@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacoes Css E jquery</title>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <script type="text/javascript" src="../public/Chart.js"></script>
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        #display{
+            width: 720px;
+            height: 500px;
+            background-color: aliceblue;
+            border: black;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8">
+        $(document).ready(function(){
+            $("#btnHideShow").click(function(){
+                $("#display").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="display">
+        <canvas id="myChart" style="width: 100%; max-width: 600px;"> </canvas>
+        <script>
+            var xValues = ['Maputo cidade', 'Maputo Provincia','GAZA', 'Inhambane'];
+            var yValues = [9875,8352,5850,6925]
+            var barColors = ["#b91d47","#00aba9","#2b5797","#eBc3b9"];
+            new Chart("myChart",{
+                type:"pie",
+                data:{
+                    labels:xValues,
+                    datasets:[{
+                        backgroundColor:barColors,
+                        data:yValues
+                    }]
+                },
+                options:{
+                    title:{
+                        display:true,
+                        text:"Representacao do emprego na zona sul de mocambique"
+                    }
+                }
+            });
+        </script>
+    </div>
+    <input type="button" name="btnHideShow" id="btnHideShow" value="HideShow" style="width: 100PX; height: 30PX;">
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/SiniciarSessao.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
+    <title>REGISTAR PARQUEAMENTO</title>
+
+<body>
+
+    <div class="login-card-container">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h1>ACTUALIZAR PARQUEAMENTO</h1>
+                <div>Por favor, insira os dados</div>
+            </div>
+            <form class="login-card-form" method="post">
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <select id="pista" placeholder="select"></select>
+                </div>
+                <div class="form-item">
+                    <select id="viatura" placeholder="select"></select>
+                </div>
+                <button type="button" id="registar">ACTUALIZAR RESERVA</button>
+            </form>
+        </div>
+     </div>
+
+    <script type="text/javascript" src="../public/jquery-3.7.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url: '../controllers/pistCTRL.php',
+                method: 'get',
+                data: { 'buscarPista': JSON.stringify(true) },
+                dataType: 'json',
+                success: function (resposta) {
+                    let html = ''
+                    for (let i = 0; i < resposta.length; i++) {
+                        dados = resposta[i]
+                        html += "<option value='" + dados.id + "'>" + dados.nome + "</option>"
+                    }
+                    $('#pista').html(html)
+                }
+            })
+            $.ajax({
+                url: '../controllers/viaCTRL.php',
+                method: 'get',
+                data: { 'buscarViaturas': JSON.stringify(true) },
+                dataType: 'json',
+                success: function (resposta) {
+                    let html = ''
+                    for (let i = 0; i < resposta.length; i++) {
+                        dados = resposta[i]
+                        html += "<option value='" + dados.id + "'>" + dados.matricula + "</option>"
+                    }
+                    $('#viatura').html(html)
+                }
+            })
+            $('#registar').click(function () {
+                $.ajax({
+                    url: '../controllers/sessCTRL.php',
+                    method: 'get',
+                    data: { 'vSessao': JSON.stringify(true) },
+                    dataType: 'json',
+                    success: function (resposta) {
+                        if (resposta) {
+                            let opu = function opu(pp) {
+                                let upp = window.location.search.substring(1),
+                                    uvp = upp.split("&"), npp, i;
+                                for (let i = 0; i < uvp.length; i++) {
+                                    npp = uvp[i].split("=");
+                                    if (npp[0] === pp) {
+                                        return npp[1] === undefined ? true : decodeURIComponent(npp[1]);
+                                    }
+                                }
+                                return false;
+                            };
+                            var actualizar = {};
+                            actualizar['pista_id'] = $("#pista option:selected").val()
+                            actualizar['id'] = opu("id")
+
+                            $.ajax({
+                                url: '../controllers/parquCTRL.php',
+                                method: 'post',
+                                data: { 'actualizar': JSON.stringify(actualizar) },
+                                dataType: 'json',
+                                success: function (resposta2) {
+                                    if (resposta2.seActualizado) {
+                                        window.location.href = "vizParqueamento.html"
+                                    }
+                                }
+                            })
+                        }
+
+                    }
+                })
+            })
+        
+        })
+    </script>
+</body>
+
+</html>

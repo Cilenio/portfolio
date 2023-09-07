@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    margin-top: 20px;
+    padding: 50px;
+    background-color:rgb(60, 58, 58);
+}
+
+.div{
+    display: flex;
+}
+table, th, td{
+    padding: 10px 10px 10px 20px;
+    border-collapse: collapse;
+    color: white;
+}
+
+table{
+    margin: auto;
+}
+
+button{
+    margin: auto;
+    width: 180px !important;
+    margin-left: 5px;
+}
+
+.container_a{
+    margin-bottom: 50px;
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.container_submit{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background:black;
+    border-radius: 0px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.home{
+    background-color:rgb(80, 79, 79);
+}
+
+select{
+    margin: 0 0 0px 70px; color: black; 
+    width: 40%; 
+    padding: 10px;
+    border: none;
+}
+

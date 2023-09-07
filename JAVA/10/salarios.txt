@@ -1,0 +1,9 @@
+Nome do Trabalhador   = Horas Trabalhadas = Horas em atraso = Salario Diario
+cilenio               = 1766              = 0               = 76
+Domingos              = 2969              = 0               = 78
+silva                 = 3954              = 44              = 65
+Manhica               = 3900              = 99              = 129
+cilenio               = 17996             = 0               = 76
+Joao                  = 679               = 0               = 56
+Alfredo               = 6796              = 77              = 76
+Timoteo               = 6797              = 99.0            = 67.00

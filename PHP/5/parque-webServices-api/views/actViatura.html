@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/SiniciarSessao.css"/>
+    <link rel="stylesheet" href="assets/estilo.css">
+    <link rel="stylesheet" href="assets/vizualizar.css">
+    <title>REGISTAR VIATURA</title>
+<body> 
+    <nav class="sidebar locked">
+        <div class="logo_items flex">
+            <span class="nav_image">
+            </span>
+            <span class="logo_name">COBRAMAGUL</span>
+            <i class="bx bx-lock-alt" id="lock-icon" title="Unlock Sidebar"></i>
+            <i class="bx bx-x" id="sidebar-close"></i>
+        </div>
+
+        <div class="menu_container">
+            <div class="menu_items">
+                <ul class="menu_item">
+                    <div class="menu_title flex">
+                        <span class="title">MENU</span>
+                        <span class="line"></span>
+                    </div>
+                    <li class="item"> <a href="regproprietario.html" class="link flex"> <i class="bx bx-home-alt"></i>
+                            <span>Adicionar
+                                Proprietarios</span> </a> </li>
+                    <li class="item"> <a href="vizProprietarios.html" class="link flex"><i class="bx bx-grid-alt"></i>
+                            <span>Listar
+                                Proprietarios</span></a></li>
+                    <li class="item"> <a href="regViatura.html" class="link flex"> <i class="bx bxs-magic-wand"></i>
+                            <span>Adicionar
+                                veiculo</span> </a> </li>
+                    <li class="item"> <a href="vizViatura.html" class="link flex"><i class="bx bx-cloud-upload"></i>
+                            <span>Listar
+                                Veiculos</span></a></li>
+                    <li class="item"> <a href="regParqueamento.html" class="link flex"><i class="bx bx-award"></i><span>
+                                Registar parqueamento</span></a></li>
+                    <li class="item"> <a href="vizParqueamento.html" class="link flex"> <i class="bx bx-flag"></i>
+                            <span>listar
+                                Parqueamento</span> </a> </li>
+                    <li class="item"> <a href="regAdministrador.html" class="link flex"> <i class="bx bx-cog"></i>
+                            <span>adicionar Administradores</span></a>
+                    </li>
+                    <li class="item"> <a href="vizAdministradores.html" class="link flex"><i
+                                class="bx bx-award"></i><span>Listar
+                                Administradores</span></a></li>
+                    <li class="item"> <a href="jobs.html" class="link flex"><i
+                                class="bx bx-award"></i><span>JOBS</span></a></li>
+                </ul>
+            </div>
+    </nav>
+    <div class="login-card-container">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h1>ACTUALIZAR VIATURA</h1>
+                <div>Por favor, insira os dados</div>
+            </div>
+            <form class="login-card-form" method="post">
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" placeholder="Fabricante" id="Fabricante" autofocus required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" placeholder=" ano_fabrico" id="ano_fabrico" autofocus required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" placeholder="Enter matricula" id="matricula" required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" placeholder="modelo" id="modelo" required>
+                </div>
+                <div class="form-item">
+                    <span class="form-item-icon material-symbols-rounded"></span>
+                    <input type="text" placeholder="Propreatario" id="Propreatario" required>
+                </div>
+                <button type="button" id="registar">ACTUALIZAR VIATURA</button>
+
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="../public/jquery-3.7.0.js"></script>
+    <script src="verificarSessao.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#registar').click(function () {
+                let opu = function opu(pp) {
+                    let upp = window.location.search.substring(1),
+                        uvp = upp.split("&"), npp, i;
+                    for (let i = 0; i < uvp.length; i++) {
+                        npp = uvp[i].split("=");
+                        if (npp[0] === pp) {
+                            return npp[1] === undefined ? true : decodeURIComponent(npp[1]);
+                        }
+                    }
+                    return false;
+                };
+                let viatura = {};
+                viatura['fabricante'] = document.getElementById("Fabricante").value
+                viatura['ano_fabrico'] = document.getElementById("ano_fabrico").value
+                viatura['matricula'] = document.getElementById("matricula").value
+                viatura['modelo'] = document.getElementById("modelo").value
+                viatura['propretario_id'] = document.getElementById("Propreatario").value
+                viatura['id'] = opu("id")
+
+                $.ajax({
+                    url: '../controllers/viaCTRL.php',
+                    method: 'post',
+                    data: { 'viatura': JSON.stringify(viatura) },
+                    dataType: 'json',
+                    success: function (resposta) {
+                        let html = ''
+                        if(resposta){
+                            window.location.href = "vizParqueamento.html"
+                        }else{
+                            alert("eERRRRR")
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

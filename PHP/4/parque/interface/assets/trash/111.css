@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.main{
+    display: flex;
+  justify-content: center;
+ align-items: center;
+  height: 100vh;
+    background-color: rgb(227, 233, 233);;
+    display: flex;
+    min-height: 100vh;
+    padding: 30px;
+}
+.menu{
+    background-color: rgb(227, 233, 233);;
+    max-width: 300px;
+    flex: 1 1 0;
+    padding: 100px;
+    border-radius: 20px;
+    height: 600px;
+    }
+.menu .h3{
+    color: rgb(255, 174, 0);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.menu .iten{
+    font-size: 0.75rem;
+    background-color: #b3abc8;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-top: -1%;
+    height: 50px;
+    width: 150px;
+    margin-left: -16px;
+    display: block;
+    padding: 1em;
+    color: #000000;
+    transition: 0.2s linear;
+    border: 0;
+    border-radius: 80px;
+}
+.menu .iten:hover{
+    color: rgb(2, 240, 73);
+    border-right: 5px solid #6c0608; 
+    }
+    .conteudo1{
+        height: 600px;
+        width: 90%;
+        float: right;
+        border-radius: 20px;
+        overflow: hidden;
+        overflow-y: scroll;
+        justify-content: center;
+        align-items: center;
+        }
+        .conteudo1 .iten2, .iten3, .iten4, .iten5{
+        margin-top: 1%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 1%;
+     
+        width: 80%;
+        height: 10px;
+        text-align: center; 
+        border-collapse: collapse;      
+        border-spacing: 0;
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgb(32, 32, .3);
+        }
+th,td{
+padding: 10px 15px;
+}
+th{
+background: #e7dfdf;
+text-transform: uppercase;
+}
+.btnTable{
+border: 0;
+border-radius: 60px;
+text-transform: uppercase;
+background-color: #cac9d1;
+}
+.btnTable:hover{
+color: rgb(2, 240, 73);
+border-right: 5px solid #6c0608;
+}

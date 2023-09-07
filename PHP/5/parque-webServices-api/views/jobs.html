@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Oportunidades de emprego</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    .ww {
+      padding: 20px;
+      background-color: #f8f9fa;
+      margin-left: 20%;
+      
+    }
+
+    .job-description--item {
+      margin-bottom: 20px;
+    }
+
+    .job-description--org__logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .job-description--org__details {
+      padding: 10px;
+    }
+
+    .job-description--org__details-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .job-description--org__details-expireAt {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 5px;
+    }
+
+    .job-description--org__details-name {
+      display: inline-block;
+      background-color: #f8f9fa;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .job-description--org_details-name--text {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .job-description--org_details-name--text a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .job-description--org_details-name--text button {
+      margin-top: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="assets/estilo.css">
+  <link rel="stylesheet" href="assets/vizualizar.css">
+</head>
+<nav class="sidebar locked">
+
+  <div class="logo_items flex">
+    <span class="nav_image">
+    </span>
+    <span class="logo_name">COBRAMAGUL</span>
+    <i class="bx bx-lock-alt" id="lock-icon" title="Unlock Sidebar"></i>
+    <i class="bx bx-x" id="sidebar-close"></i>
+  </div>
+
+  <div class="menu_container">
+    <div class="menu_items">
+      <ul class="menu_item">
+        <div class="menu_title flex">
+          <span class="title">MENU</span>
+          <span class="line"></span>
+        </div>
+        <li class="item"> <a href="regproprietario.html" class="link flex"> <i class="bx bx-home-alt"></i>
+            <span>Adicionar
+              Proprietarios</span> </a> </li>
+        <li class="item"> <a href="vizProprietarios.html" class="link flex"><i class="bx bx-grid-alt"></i>
+            <span>Listar
+              Proprietarios</span></a></li>
+        <li class="item"> <a href="regViatura.html" class="link flex"> <i class="bx bxs-magic-wand"></i>
+            <span>Adicionar
+              veiculo</span> </a> </li>
+        <li class="item"> <a href="vizViatura.html" class="link flex"><i class="bx bx-cloud-upload"></i>
+            <span>Listar
+              Veiculos</span></a></li>
+        <li class="item"> <a href="regParqueamento.html" class="link flex"><i class="bx bx-award"></i><span>
+              Registar parqueamento</span></a></li>
+        <li class="item"> <a href="vizParqueamento.html" class="link flex"> <i class="bx bx-flag"></i>
+            <span>listar
+              Parqueamento</span> </a> </li>
+        <li class="item"> <a href="regAdministrador.html" class="link flex"> <i class="bx bx-cog"></i>
+            <span>adicionar Administradores</span></a>
+        </li>
+        <li class="item"> <a href="vizAdministradores.html" class="link flex"><i class="bx bx-award"></i><span>Listar
+              Administradores</span></a></li>
+        <li class="item"> <a href="jobs.html" class="link flex"><i class="bx bx-award"></i><span>JOBS</span></a></li>
+      </ul>
+    </div>
+</nav>
+  <div class="ww">
+
+  
+  <div class="job-descripton">
+    <div class="job-descripton--header">OPOTURNIDADES</div>
+    <div class="row job-descripton--list">
+      <div class="col-lg-4 col-md-6">
+        <div class="card job-description--item">
+          <div class="card-body">
+            <img class="job-description--org__logo" src="" />
+            <div class="job-description--org__details">
+              <div class="job-description--org__details-title">
+                {article.title.rendered}
+              </div>
+              <div class="job-description--org__details-expireAt">
+                {article.acf.validade_do_concurso}
+              </div>
+              <div class="job-description--org__details-inline">
+                <div class="job-description--org__details-name">
+                  <div class="job-description--org__details-name--text">
+                    {article.acf.organizacao}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="../public/jquery-3.7.0.js"></script>
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: "../controllers/jobsControllers.php",
+        method: "GET",
+        data: $("form:first").serialize(),
+        dataType: "html",
+        success: function (resposta) {
+          console.log(resposta);
+          var objects = JSON.parse(resposta);
+          let html = "";
+          console.log(objects);
+
+          for (let i = 0; i < objects.length; i++) {
+            html +=
+              '<div class="col-lg-4 col-md-6"><div class="card  job-description--item"><div class="card-body"><img class="job-description--org_logo" src=""> <div class="job-description--details"><div class="job-description--org_details"><div class="job-description--org_details-title">' +
+              objects[i].title.rendered +
+              '</div><div class="job-description--org_details-expireAt">' +
+              objects[i].acf.validade_do_concurso +
+              "id:" +
+              objects[i].id +
+              '</div><div class="job-description--org_details-inline"><div class="job-description--org_details-name"><div class="job-description--org_details-name--text">' +
+              objects[i].acf.organizacao +
+              '</div><a href="job.html?id=' +
+              objects[i].id +
+              ' "<button class="btn btn-primary">Escolher</button> <a/></div></div></div></div></div></div></div>';
+          }
+
+          $(".job-descripton--list").html(html);
+        },
+      });
+    });
+  </script>
+</body>
+
+</html>

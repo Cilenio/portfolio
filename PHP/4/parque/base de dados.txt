@@ -1,0 +1,138 @@
+
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+
+DROP SCHEMA IF EXISTS `dpwebdpls_parque` ;
+
+
+CREATE SCHEMA IF NOT EXISTS `dpwebdpls_parque` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `dpwebdpls_parque` ;
+
+
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`administrador` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`administrador` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `email` VARCHAR(45) NOT NULL COMMENT '',
+  `nome` VARCHAR(45) NOT NULL COMMENT '',
+  `senha` VARCHAR(45) NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dpwebdpls_parque`.`sessao`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`sessao` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`sessao` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `token` VARCHAR(45) NOT NULL COMMENT '',
+  `se_valido` TINYINT(1) NOT NULL COMMENT '',
+  `administrador_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`, `administrador_id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  INDEX `fk_sessao_administrador_idx` (`administrador_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_sessao_administrador`
+    FOREIGN KEY (`administrador_id`)
+    REFERENCES `dpwebdpls_parque`.`administrador` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dpwebdpls_parque`.`propretario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`propretario` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`propretario` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `nome` VARCHAR(45) NOT NULL COMMENT '',
+  `sobrenome` VARCHAR(45) NOT NULL COMMENT '',
+  `email` VARCHAR(45) NOT NULL COMMENT '',
+  `sexo` VARCHAR(45) NOT NULL COMMENT '',
+  `endereco` VARCHAR(45) NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dpwebdpls_parque`.`viatura`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`viatura` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`viatura` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `fabricante` VARCHAR(45) NOT NULL COMMENT '',
+  `ano_fabrico` INT NOT NULL COMMENT '',
+  `modelo` VARCHAR(45) NOT NULL COMMENT '',
+  `matricula` VARCHAR(45) NOT NULL COMMENT '',
+  `propretario_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`, `propretario_id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  INDEX `fk_viatura_propretario1_idx` (`propretario_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_viatura_propretario1`
+    FOREIGN KEY (`propretario_id`)
+    REFERENCES `dpwebdpls_parque`.`propretario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dpwebdpls_parque`.`pista`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`pista` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`pista` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `nome` VARCHAR(45) NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '')
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `dpwebdpls_parque`.`parqueamento`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dpwebdpls_parque`.`parqueamento` ;
+
+CREATE TABLE IF NOT EXISTS `dpwebdpls_parque`.`parqueamento` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `data` DATETIME NOT NULL COMMENT '',
+  `estado` TINYINT(1) NOT NULL COMMENT '',
+  `administrador_id` INT NOT NULL COMMENT '',
+  `pista_id` INT NOT NULL COMMENT '',
+  `viatura_id` INT NOT NULL COMMENT '',
+  PRIMARY KEY (`id`, `administrador_id`, `pista_id`, `viatura_id`)  COMMENT '',
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC)  COMMENT '',
+  INDEX `fk_parqueamento_administrador1_idx` (`administrador_id` ASC)  COMMENT '',
+  INDEX `fk_parqueamento_pista1_idx` (`pista_id` ASC)  COMMENT '',
+  INDEX `fk_parqueamento_viatura1_idx` (`viatura_id` ASC)  COMMENT '',
+  CONSTRAINT `fk_parqueamento_administrador1`
+    FOREIGN KEY (`administrador_id`)
+    REFERENCES `dpwebdpls_parque`.`administrador` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_parqueamento_pista1`
+    FOREIGN KEY (`pista_id`)
+    REFERENCES `dpwebdpls_parque`.`pista` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_parqueamento_viatura1`
+    FOREIGN KEY (`viatura_id`)
+    REFERENCES `dpwebdpls_parque`.`viatura` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

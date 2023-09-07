@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pauta estudante</title>
+    <style>
+        .text-input{
+            width: 350px;
+            padding: 2px;
+        }
+        .ininput-notas{
+            width: 50px;
+            padding: 2px;
+        }
+        td#alinhaDireita{
+            text-align: right;
+        }
+        div.main{
+            width: auto;background-color: floralwhite;
+            margin-top: 5px;margin-left: 25px;padding: 20px;
+        }
+    </style>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <script type="text/javascript" src="exercicio2.js"></script>
+</head>
+<body>
+    <div class="main">
+        <h1>ESCOLA SECONDARIA JOAQUIM CHISSANO DE BOANE</h1>
+        <h2>DIRECAO PEDAGOGICA</h2>
+        <h3>REGISTRO DE APROVEITAMENTO PEDAGOGICO SEMESTRAL</h3>
+        <h2>ELEBORADO POR CILENIO JOSE MAGULE 2105 TPW3</h2>
+        <form id="myForm">
+            <table>
+                <tr>
+                    <td id="alinhaDireita">Codigo</td>
+                    <td><input type="text" id="txtCodigo" class="text-input"></td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">Nome Completo</td>
+                    <td><input type="text"  id="txtNome" class="text-input"></td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">SEXO</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sexo" id="sexo" value="Masculino">
+                        <label for="Masculino">Masculino</label>&nbsp;&nbsp;
+                        <input type="radio" name="sexo" id="sexo" value="Femenino">
+                        <label for="Femenino">Femenino</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">Disciplina</td>
+                    <td>
+                        <select name="disciplina" id="disciplina" class="text-input">
+                            <option value="Matematica">Matematica</option>
+                            <option value="Portugues">Portugues</option>
+                            <option value="Fisica">Fisica</option>
+                            <option value="Quimica">Quimica</option>
+                            <option value="Historia">Historia</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="alinhaDireita">Avaliacoes</td>
+                    <td>
+                        ACS1 <input type="text" id="txtAcs1" class="ininput-notas" />&nbsp;
+                        ACS2 <input type="text" id="txtAcs2" class="ininput-notas" placeholder="acs2"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        ACS3 <input type="text" id="txtAcs3" class="ininput-notas" />
+                    </td>
+                </tr>
+                <tr>
+                        <td id="alinhaDireita">Avaliacoes</td>
+                        <td>
+                            ACP1 <input type="text" id="txtAcp1" class="ininput-notas" />&nbsp;
+                            ACP2 <input type="text" id="txtAcp2" class="ininput-notas" />&nbsp;
+                            Pratica <input type="text" id="txtTrab" class="ininput-notas" />
+                        </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="padding: 20px; text-align: center;">
+                        <button type="button" onclick="printPauta()" style="padding: 10PX;"> 
+                        EMITIR  A PAUTA
+                    </button>
+                    &nbsp;
+                    <button type="button" onclick="addStudent()" style="padding: 10px;">
+                    GUARDAR NO ARRAY
+                    </button>
+                    </td>
+                </tr>
+            </table>
+            <table border="1">
+                <head>
+                    <tr>
+                        <th>CODEST</th>
+                        <th>NOME COMPLETO</th>
+                        <th>Sexo</th>
+                        <th>DISCIPLINA</th>
+                        <th>MEDIASACS</th>
+                        <th>MediaAcp</th>
+                        <th>NOTATRAB</th>
+                        <th>MEDSEM</th>
+                        <th>RESULTADO</th>
+                    </tr>
+                </head>
+                <tbody id="tableView"></tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

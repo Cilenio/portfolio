@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" />
+    <style>
+        .body-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            border: 12px;
+            margin-bottom: auto;
+            background-color: rgb(103, 108, 138);
+        }
+
+        .card-wrapper {
+            max-width: 700px;
+            margin: 100px auto;
+            box-shadow: 50x;
+        }
+
+        .job-description--org_logo {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body class="body-wrapper">
+    <div class="card-wrapper">
+        <a href="jobs.html"><button type="button">Voltar</button></a>
+        <div class="card bg-info">
+            <div class="card-body">
+                <div class="job-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../public/jquery-3.7.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            let obterParametroUrl = function obterParametroUrl(parametroPesquisa) {
+                let urlPaginaPesquisa = window.location.search.substring(1),
+                    urlVariaveisPesquisa = urlPaginaPesquisa.split("&"),
+                    nomeParametroPesquisa,
+                    i;
+                for (let i = 0; i < urlVariaveisPesquisa.length; i++) {
+                    nomeParametroPesquisa = urlVariaveisPesquisa[i].split("=");
+
+                    if (nomeParametroPesquisa[0] === parametroPesquisa) {
+                        return nomeParametroPesquisa[1] === undefined
+                            ? true
+                            : decodeURIComponent(nomeParametroPesquisa[1]);
+                    }
+                }
+
+                return false;
+            };
+            let jobIdObject = {};
+            jobIdObject["jobId"] = obterParametroUrl("id");
+            console.log(jobIdObject);
+            $.ajax({
+                url: "../controllers/jobController.php",
+                method: "post",
+                data: { dados: JSON.stringify(jobIdObject) },
+                dataType: "html",
+                success: function (resposta) {
+                    console.log(resposta);
+                    let objects = JSON.parse(resposta);
+                    console.log(objects);
+                    let html = "";
+
+                    html +=
+                        '<li class="job-description--item card bg-info"><div class="job-description--self"><img class="job-description--org_logo" src=""> <div class="job-description--details"><div class="job-description--org_details"><div class="job-description--org_details-title">' +
+                        objects.title.rendered +
+                        '</div><div class="job-description--org_details-expireAt">' +
+                        objects.acf.validade_do_concurso +
+                        '</div><div class="job-description--org_details-inline">' +
+                        objects.content.rendered +
+                        '<div class="job-description--org_details-name"><div class="job-description--org_details-name--text">' +
+                        objects.acf.organizacao +
+                        "</div></div></div></div></div></li>";
+
+                    $(".job-description").html(html);
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

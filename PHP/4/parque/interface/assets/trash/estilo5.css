@@ -1,0 +1,19 @@
+.main{
+    display: flex;
+  justify-content: center;
+ align-items: center;
+  height: 100vh;
+
+    display: flex;
+    min-height: 100vh;
+    background-color: #4ac6ff;
+    padding: 30px;
+}
+.menu{
+background-color: #dcdddc;
+max-width: 300px;
+flex: 1 1 0;
+padding: 100px;
+border-radius: 20px;
+height: 600px;
+}

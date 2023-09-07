@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+C:\Users\TEMP.ITC.003\Desktop\ConexaoComDb\.metadata\.plugins\org.eclipse.jdt.core
+3927496509.index

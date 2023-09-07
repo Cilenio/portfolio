@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Jquery</title>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <style type="text/css">
+        .titulo1{
+            color: blue;
+            font-size: 40px;
+        }
+        #titulo2{
+            color: red;
+            font-size: 30px;
+        }
+        .paragrafo{
+            color: green;
+            text-align: justify;
+            font-size: 22px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("h1").click(function(){
+                $(this).addClass("titulo1");
+            });
+            $("h2").click(function(){
+                $(this).addClass("titulo2");
+            });
+            $("p").click(function(){
+                $(this).addClass("paragrafo");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Pagina demostracao do uso da biblioteca jquery</h1>
+    <h2>Analisando o carregamento da pagina. emitundo mensagem</h2>
+    <div>
+        A Folha de relacao nominar eletronica e uma plataforma informatica
+        do misnisterio do trabalho e seguranca social, que tem como poposito
+        a recolha de dados concernentes as empresas e seus trabalhadores e 
+        operar no sector privado no territorio da republica de Mocambique,
+        em tempo real produz estatistica do mercado de trabalho em tempo real.
+    </div>
+    <p>
+        O SIMIGRA e uma plataforma eletronica de gestao da informacao do 
+        fenomeno migratorio que vem a responder as necessidades de controlo da 
+        atribuicao de quotas, consolidacao e partilha de informacao e producao de estatictica, baseadas em infoormacao rigorosa e efetuata para 
+        suporte e analise e tomada de decisoes sobre o fenomeno migrator por parte 
+        do ministerio de trabalho emprego e seguranca soccial.
+    </p>
+</body>
+</html>

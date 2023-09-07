@@ -1,0 +1,14 @@
+create database livraria;
+create table livrarias (
+    `id` INT NOT NULL AUTO_INCREMENT,
+  `nome_livraria` VARCHAR(45) NOT NULL ,
+  `localizacao` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`)
+);
+create table usuario (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL ,
+  `nome` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id`)
+);

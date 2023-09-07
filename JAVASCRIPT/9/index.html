@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: rgb(0,183,255);
+        }
+        #animate{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button onclick="minhaAnimacao()">Processar Animacao</button>
+    </p>
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+    <script>
+        function minhaAnimacao(){
+            var elemento = document.getElementById("animate");
+            var posicao = 0;
+            var id = setInterval(frame, 5);
+            function frame(){
+                if(posicao ==450){
+                    clearInterval(id);
+                }else{
+                    posicao++;
+                    elemento.style.top = posicao + 'px';
+                    elemento.style.left = posicao +'px'
+                }
+            }
+        }
+    </script>
+</body>
+</html>

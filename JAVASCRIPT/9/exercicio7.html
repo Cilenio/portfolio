@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graficos Javascript</title>
+    <script type="text/javascript" src="Chart.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Aplicando Graficos em javascript</h1>
+      <h2>Grafico em linha, usando pacote chart</h2>
+    </div>
+    <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+    <script>
+      var xvalues = ["maputo", "gaza", "imnhambane", "manica", "sofala"];
+      var yvalues = [200, 250, 150, 100, 95];
+      new Chart("myChart", {
+        type: "line",
+        data: {
+          labels: xvalues,
+          datasets: [
+            {
+              fill: false,
+              lineTension: 0,
+              backgroundColor: "rgba(0,0,255,1.0)",
+              borderColor: "rgba(0,0,255,0.1)",
+              data: yvalues,
+            },
+          ],
+        },
+        options: {
+          legend: { display: false },
+          scales: {
+            yAxes: [{ ticks: { min: 90, max: 300 } }],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

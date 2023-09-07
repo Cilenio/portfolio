@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico de barras</title>
+    <script type="text/javascript" src="Chart.js"></script>
+</head>
+<body>
+    div>
+        <h1>Aplicando Graficos em javascript</h1>
+        <h2>Grafico em linha, usando pacote chart</h2>
+    </div>
+    <canvas id="myChart" style="width: 100%; max-width: 600px;"></canvas>
+    <script>
+        var xvalues = ["agricultura", "pecuario", "caca e sivicultura","pesca",
+            "industria de extracao de minerais","industria tranformadora",
+            "industria de producao e distribuicao","consrucao","administracao",
+            "actividades finaceiras","Actividade nao financeira"  ];
+        var yvalues =[500.0,689.0,9500.0,7250.0,6500.0,8250.0,6325.0,5450.0,7954.0];
+        var barColors =["red", "green", "orange","brown","lime",
+                        "purple", "thistle", "gold"];
+        new Chart(myChart,{
+            type: "bar",
+            data: {
+                labels:xvalues,
+                datasets:[{
+                    backgroundColor: barColors,
+                    data:yvalues
+                }]
+            },
+            options:{
+                legend:{display:false},
+                title:{
+                    display: true,
+                    text:"Tabela Salarial por setor de actividade"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exemplo submit com jquery</title>
+    <script type="text/javascript" src="../public/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').submit(function(){
+                event.preventDefault();
+                var $input = $(this).find('input');
+                var input = $input.val();
+                $('#text-output').text("Na caixa de texto voce digitou: "
+                + input);
+            });
+        });
+    </script>
+    <style>
+        form{text-align: center;}
+        input{
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p:first-child{
+            width: 400px;
+            text-align: center;
+            margin: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            Digite os campos do formulario e , em seguida pressione 
+            enter pressionando o botao veja o efeito do evento
+        </p>
+        <form>
+            <input type="text">
+            <button type="submit"></button>
+        </form>
+        <p id="text-output"></p>
+    </div>
+</body>
+</html>

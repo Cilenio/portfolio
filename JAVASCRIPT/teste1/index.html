@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../public/jquery.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>SOMATIVA2 - RESULTADO DE APRENDIZAGEM 3 E 4</h1>
+      <h2>Exercicio feito por GABRIEL ORLANDO MATSIMBE - 21444</h2>
+    </div>
+    <div>
+      <h3>Tratar EventoS em paginas web com jquery</h3>
+      <form>
+        <table>
+          <tr>
+            <td>PRODUTO</td>
+            <td>
+              <select name="produto" id="produto">
+                <option value="ARROZ">ARROZ</option>
+                <option value="CEBOLA">CEBOLA</option>
+                <option value="CENOURA">CENOURA</option>
+                <option value="BATATA">BATATA</option>
+                <option value="AMENDOIM">AMENDOI</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>PRECO POR UNIDADE</td>
+            <td><input type="text" name="precoUnidade" id="precoUnidade" /></td>
+          </tr>
+          <tr>
+            <td>QUANTIDADE COMERCIALIZADA</td>
+            <td>
+              <input
+                type="text"
+                name="qtyComercializada"
+                id="qtyComercializada"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><button type="button" id="btn">Processar venda</button></td>
+          </tr>
+        </table>
+      </form>
+      <table class="list" border="1">
+        <thead>
+          <tr>
+            <th>PRODUTO</th>
+            <th>PRECO UNITARIO</th>
+            <th>QUANTIDADE</th>
+            <th>CUSTO REAL</th>
+            <th>VALOR DE IVA</th>
+            <th>CUSTO VENDA</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div>
+      <br /><br />
+      <button id="btn2">Processar Pauta</button>
+      <table border="1">
+        <thead>
+          <th>CODIGO ESTUDANTE</th>
+          <th>CODIGO DISCIPLINA</th>
+          <th>MEDIA ACS</th>
+          <th>MEDIA FINAL</th>
+          <th>RESULTADO</th>
+        </thead>
+        <tbody id="tbody2"></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>

@@ -1,0 +1,23 @@
+import java.sql.*;
+
+public class Conexao {
+	Connection conexao = null;
+	String driver = "org.gjt.mm.mysql.Driver";
+	String connectionUrl = "jdbc:mysql://containers-us-west-158.railway.app:7003/estudantes";
+	public Connection conectar () {
+	
+		
+			try {
+				if(conexao == null ) {
+				Class.forName(driver);
+				conexao = DriverManager.getConnection(connectionUrl, "root", "7VMg9U03IFpZcGM0HVsj");
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return conexao;
+		
+	}
+
+}
